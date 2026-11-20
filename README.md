@@ -13,9 +13,20 @@ You write the parts that are different in every project: the webhook, what text 
 
 Your API key goes in the webhook, in the Particle Console. It never goes in your firmware.
 
+![One request and reply: the device publishes sensor data, Gemini's reply arrives about a second later, and the sketch prints the unpacked answer](docs/sample-reply.gif)
+
+*A real request and reply from a Photon 2 project that uses this library. This project has no response template, so the device receives Gemini's whole reply.*
+
 ## Install
 
-In Particle Workbench, run **Particle: Install Library** and type `GeminiWebhook`. To unpack the reply you also need `ArduinoJson`, installed the same way.
+`GeminiWebhook` is in the Particle library registry.
+
+- **Particle Workbench:** run **Particle: Install Library** and type `GeminiWebhook`
+- **Particle CLI:** from your project folder, run `particle library add GeminiWebhook`
+
+To unpack the reply you also need `ArduinoJson`, installed the same way.
+
+Works on any Particle device that supports webhooks. Tested on a Photon 2 with Device OS 6.4.1.
 
 ## Functions
 
@@ -129,6 +140,12 @@ Google retires models. If the webhook reports error 404, put a current model nam
 
 `test/run.sh` runs the library's logic on a laptop with a stand-in for the Particle API. It needs a C++17 compiler.
 
+## Versions
+
+- **0.1.2**: links to this repository. No code change
+- **0.1.1**: README corrections. No code change
+- **0.1.0**: first release
+
 ## License
 
-MIT
+MIT. Written by Isabel Wu for USC TAC 348, Making Smart Devices.
